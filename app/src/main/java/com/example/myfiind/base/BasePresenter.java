@@ -2,8 +2,8 @@ package com.example.myfiind.base;
 
 public class BasePresenter<D extends BaseView> {
 
-    private D Iview;
+    private D Iviews;
     public void addView(D d){
-        Iview =d;
+        Iviews =d;
     }
 }
