@@ -8,6 +8,8 @@ import com.example.myfiind.bean.NewsBean;
 import com.example.myfiind.interfacer.MainContract;
 import com.example.myfiind.presenter.MainPrenter;
 
+import java.util.List;
+
 public class MainActivity extends BaseActivity<MainPrenter> implements MainContract.Iview {
 
     private TextView tv;
@@ -29,11 +31,12 @@ public class MainActivity extends BaseActivity<MainPrenter> implements MainContr
 
     @Override
     protected MainPrenter getPresenter() {
-        return new MainPrenter(this);
+        return new MainPrenter();
     }
 
     @Override
     public void getNewsDatas(NewsBean newsBean) {
-
+        List<NewsBean.NewsDTO> news = newsBean.getNews();
+        tv.setText(news.get(0).getTile());
     }
 }

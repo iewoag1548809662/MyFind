@@ -12,10 +12,8 @@ public class MainPrenter extends BasePresenter<MainContract.Iview> implements Ma
 
     public MainContract.Imodel imodel;
 
-    public MainContract.Iview iview;
 
-    public MainPrenter(MainContract.Iview mainActivity) {
-        this.iview = mainActivity;
+    public MainPrenter() {
         this.imodel = new MainModel(this);
     }
 
@@ -24,7 +22,7 @@ public class MainPrenter extends BasePresenter<MainContract.Iview> implements Ma
         imodel.getNews(URLConstants.URL_ADD, new ICallBanck<NewsBean>() {
             @Override
             public void getSuccess(NewsBean newsBean) {
-                iview.getNewsDatas(newsBean);
+                Iviews.getNewsDatas(newsBean);
             }
 
             @Override
