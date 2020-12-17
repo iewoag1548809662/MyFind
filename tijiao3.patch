@@ -1,0 +1,17 @@
+Index: app/src/main/java/com/example/myfiind/base/BasePresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myfiind/base/BasePresenter.java	(date 1608203376650)
++++ app/src/main/java/com/example/myfiind/base/BasePresenter.java	(date 1608203376650)
+@@ -0,0 +1,9 @@
++package com.example.myfiind.base;
++
++public class BasePresenter<D extends BaseView> {
++
++    private D Iview;
++    public void addView(D d){
++        Iview =d;
++    }
++}
