@@ -33,6 +33,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -54,4 +55,8 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     // 图片加载依赖
     implementation 'com.dyhdyh.support:glide:1.0.0'
+
+    implementation('com.alibaba.android:vlayout:1.2.8@aar') {
+        transitive = true
+    }
 }

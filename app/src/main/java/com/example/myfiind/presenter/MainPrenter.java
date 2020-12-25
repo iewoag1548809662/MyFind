@@ -1,28 +1,26 @@
 package com.example.myfiind.presenter;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.example.myfiind.base.BasePresenter;
-import com.example.myfiind.bean.NewsBean;
+import com.example.myfiind.bean.HomeBean;
 import com.example.myfiind.interfacer.MainContract;
 import com.example.myfiind.model.MainModel;
 import com.example.myfiind.utils.ICallBanck;
 import com.example.myfiind.utils.URLConstants;
-import com.example.myfiind.view.MainActivity;
 
-public class MainPrenter extends BasePresenter<MainContract.Iview> implements MainContract.Iprenter {
-
-    public MainContract.Imodel imodel;
+public class MainPrenter extends BasePresenter<MainContract.Iview,MainContract.Imodel> implements MainContract.Iprenter {
 
 
-    public MainPrenter() {
-        this.imodel = new MainModel(this);
-    }
+
+
 
     @Override
-    public void getNews() {
-        imodel.getNews(URLConstants.URL_ADD, new ICallBanck<NewsBean>() {
+    public void getHomes() {
+        IModel.getHomes(URLConstants.URL_ADD, new ICallBanck<HomeBean>() {
             @Override
-            public void getSuccess(NewsBean newsBean) {
-                Iviews.getNewsDatas(newsBean);
+            public void getSuccess(HomeBean homeBean) {
+                Iview.getHomesDatas(homeBean);
             }
 
             @Override
@@ -30,5 +28,10 @@ public class MainPrenter extends BasePresenter<MainContract.Iview> implements Ma
 
             }
         });
+    }
+
+    @Override
+    protected MainContract.Imodel getIModel() {
+        return new MainModel();
     }
 }

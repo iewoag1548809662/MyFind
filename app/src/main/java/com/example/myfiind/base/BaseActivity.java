@@ -15,7 +15,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         setContentView(getView());
         if (IPresenter==null){
             IPresenter = getPresenter();
-            IPresenter.addView(this);
+            IPresenter.addACter(this);
         }
         initView();
         initData();
@@ -27,5 +27,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected abstract int getView();
     protected abstract T getPresenter();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (IPresenter!=null){
+            IPresenter.detachView();
+        }
+    }
 
 }

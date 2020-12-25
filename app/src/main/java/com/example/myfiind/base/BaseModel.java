@@ -1,5 +1,4 @@
 package com.example.myfiind.base;
 
-public interface BaseView {
-
+public interface BaseModel {
 }

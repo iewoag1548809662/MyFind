@@ -1,8 +1,8 @@
 package com.example.myfiind.utils;
 
-public class URLConstants {
+public interface URLConstants {
 
-    public static String BASE_URL = "http://cdwan.cn:7000/";
+      String BASE_URL = "https://cdwan.cn/";
 
-    public static String URL_ADD =BASE_URL+"exam2003/anewslist.json";
+      String URL_ADD =BASE_URL+"api/index";
 }

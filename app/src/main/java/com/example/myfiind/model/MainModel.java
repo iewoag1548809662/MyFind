@@ -4,17 +4,14 @@ import com.example.myfiind.interfacer.MainContract;
 import com.example.myfiind.presenter.MainPrenter;
 import com.example.myfiind.utils.ICallBanck;
 import com.example.myfiind.utils.MyNetworkframework;
+import com.example.myfiind.utils.URLConstants;
 
 public class MainModel implements MainContract.Imodel {
 
-    private MainContract.Iprenter iprenter;
 
-    public MainModel(MainContract.Iprenter mainPrenter) {
-        this.iprenter = mainPrenter;
-    }
 
     @Override
-    public <T> void getNews(String url, ICallBanck<T> callBanck) {
-        MyNetworkframework.getmyNetworkframework().get(url,callBanck);
+    public <T> void getHomes(String url, ICallBanck<T> callBanck) {
+        MyNetworkframework.getmyNetworkframework().get(URLConstants.URL_ADD,callBanck);
     }
 }

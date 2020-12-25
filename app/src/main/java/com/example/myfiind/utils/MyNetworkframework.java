@@ -61,7 +61,7 @@ public class MyNetworkframework implements IWorkInterface {
                             Type[] actualTypeArguments = ((ParameterizedType) genericInterfaces[0]).getActualTypeArguments();
                             Type type = actualTypeArguments[0];
                             Gson gson = new Gson();
-                            T json = gson.fromJson(string, type);
+                            T json = gson.fromJson(string,type);
                             callBanck.getSuccess(json);
                         } catch (IOException e) {
                             e.printStackTrace();

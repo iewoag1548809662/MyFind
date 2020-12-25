@@ -4,16 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@id/radoi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="153dp">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <RadioGroup
+        android:id="@+id/radoi"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <RadioButton
+            android:id="@+id/butt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:button="@null"
+            android:textColor="@drawable/selectortext"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:drawableTop="@drawable/selectors3"
+            android:layout_weight="1"
+             />
+
+        <RadioButton
+            android:id="@+id/butt2"
+            android:layout_width="0dp"
+            android:text="考题"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@drawable/selectortext"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/selectorsss"
+           />
+
+        <RadioButton
+            android:id="@+id/butt3"
+            android:layout_width="0dp"
+            android:text="分类"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/selectortext"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/selectors2"
+             />
+
+        <RadioButton
+            android:id="@+id/butt4"
+            android:layout_width="0dp"
+            android:text="购物车"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@drawable/selectortext"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/selectors1"
+             />
+
+        <RadioButton
+            android:id="@+id/butt5"
+            android:layout_width="0dp"
+            android:text="我的"
+            android:textColor="@drawable/selectortext"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/selectorsss"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_weight="1"/>
+
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
