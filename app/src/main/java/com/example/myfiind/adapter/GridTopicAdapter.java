@@ -1,6 +1,5 @@
 package com.example.myfiind.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +7,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.layout.ColumnLayoutHelper;
 import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.bumptech.glide.Glide;
 import com.example.myfiind.R;
@@ -20,50 +19,52 @@ import com.example.myfiind.bean.HomeBean;
 
 import java.util.List;
 
-public class ColumnLayoutHelperAdapter extends DelegateAdapter.Adapter {
+public class GridTopicAdapter extends DelegateAdapter.Adapter {
+    private FragmentActivity context;
+    private List<HomeBean.DataDTO.CategoryListDTO.GoodsListDTO> goodsList;
+    private GridLayoutHelper gridLayoutHelper;
 
-    private com.alibaba.android.vlayout.layout.GridLayoutHelper GridLayoutHelper;
-    private Context context;
-    private List<HomeBean.DataDTO.ChannelDTO> list;
-
-    public ColumnLayoutHelperAdapter(GridLayoutHelper GridLayoutHelper, Context context, List<HomeBean.DataDTO.ChannelDTO> list) {
-        this.GridLayoutHelper = GridLayoutHelper;
+    public GridTopicAdapter(FragmentActivity context, List<HomeBean.DataDTO.CategoryListDTO.GoodsListDTO> goodsList, GridLayoutHelper gridLayoutHelper) {
         this.context = context;
-        this.list = list;
+        this.goodsList = goodsList;
+        this.gridLayoutHelper = gridLayoutHelper;
     }
 
     @Override
     public LayoutHelper onCreateLayoutHelper() {
-        return GridLayoutHelper;
+        return gridLayoutHelper;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_columnlayout, parent, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.activity_gri, parent, false);
         return new MyViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-        myViewHolder.tv_colmn.setText(list.get(position).getName());
-        Glide.with(context).load(list.get(position).getIcon_url()).into(myViewHolder.img_colmn);
+        myViewHolder.tv_top.setText(goodsList.get(position).getName());
+        myViewHolder.tv_top2.setText(goodsList.get(position).getRetail_price()+"");
+        Glide.with(context).load(goodsList.get(position).getList_pic_url()).into(myViewHolder.img_top);
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return goodsList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tv_colmn;
-        private ImageView img_colmn;
+        private TextView tv_top;
+        private TextView tv_top2;
+        private ImageView img_top;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_colmn = itemView.findViewById(R.id.tv_colmn);
-            img_colmn = itemView.findViewById(R.id.img_colmn);
+            tv_top = itemView.findViewById(R.id.tv_top);
+            tv_top2 = itemView.findViewById(R.id.tv_top2);
+            img_top = itemView.findViewById(R.id.img_top);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.example.myfiind.presenter;
 
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.myfiind.base.BasePresenter;
 import com.example.myfiind.bean.HomeBean;

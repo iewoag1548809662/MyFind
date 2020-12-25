@@ -80,7 +80,6 @@ public class MainActivity extends BaseActivity<MainPrenter>
                     case  R.id.butt1:
                        butt1.setChecked(true);
                         break;
-
                     case  R.id.butt2:
                         butt2.setChecked(true);
                         break;
