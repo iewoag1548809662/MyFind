@@ -198,6 +198,7 @@ public class HomeFragment extends BaseFragment<MainPrenter> implements MainContr
         }
         danGeAdapter.notifyDataSetChanged();
 
+
         //delegateAdapter.addAdapter(linearLayoutHelperAdapter);
         recyclerView.setLayoutManager(virtualLayoutManager);
         recyclerView.setAdapter(delegateAdapter);
