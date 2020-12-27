@@ -4,59 +4,63 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.example.myfiind.R;
 
-public class LinearLayoutHelperAdapter extends DelegateAdapter.Adapter {
-
-    private LinearLayoutHelper linearLayoutHelper;
+public class ButtonAdapter extends DelegateAdapter.Adapter {
+    private GridLayoutHelper gridLayoutHelper;
     private Context context;
-    private String title;
-    public LinearLayoutHelperAdapter(LinearLayoutHelper linearLayoutHelper, Context context, String title) {
-        this.linearLayoutHelper = linearLayoutHelper;
+
+    public ButtonAdapter(GridLayoutHelper gridLayoutHelper, Context context) {
+        this.gridLayoutHelper = gridLayoutHelper;
         this.context = context;
-        this.title=title;
     }
 
     @Override
     public LayoutHelper onCreateLayoutHelper() {
-        return linearLayoutHelper;
+        return gridLayoutHelper;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.activity_linearlayouthelper, parent, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.activity_button, parent, false);
         return new MyViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-        myViewHolder.tv_LinearLayoutHelper.setText(title);
+        myViewHolder.butts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "搜索", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return 1;
     }
-
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tv_LinearLayoutHelper;
+        private Button butts;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_LinearLayoutHelper = itemView.findViewById(R.id.tv_LinearLayoutHelper);
+            butts = itemView.findViewById(R.id.butts);
 
         }
     }
+
 }

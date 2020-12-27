@@ -20,22 +20,16 @@ import com.example.myfiind.bean.HomeBean;
 
 import java.util.List;
 
-public class GridLayoutAdapterOne extends DelegateAdapter.Adapter {
+public class GridLayoutAdapterOne extends RecyclerView.Adapter {
 
     private Context context;
     private List<HomeBean.DataDTO.TopicListDTO> topicListDTOList;
-    private LinearLayoutHelper gridLayoutHelper;
 
-    public GridLayoutAdapterOne(Context context, List<HomeBean.DataDTO.TopicListDTO> topicListDTOList, LinearLayoutHelper gridLayoutHelper) {
+    public GridLayoutAdapterOne(Context context, List<HomeBean.DataDTO.TopicListDTO> topicListDTOList) {
         this.context = context;
         this.topicListDTOList = topicListDTOList;
-        this.gridLayoutHelper = gridLayoutHelper;
     }
 
-    @Override
-    public LayoutHelper onCreateLayoutHelper() {
-        return gridLayoutHelper;
-    }
 
     @NonNull
     @Override
